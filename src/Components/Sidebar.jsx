@@ -6,7 +6,7 @@ const Sidebar = () => {
       <div class="deznav">
         <div class="deznav-scroll">
           <ul class="metismenu" id="menu">
-            <li class="menu-title">EAGLE VISION</li>
+            <li class="menu-title">Kapitan Land</li>
             <li>
               <a
                 class="has-arrow "
@@ -291,7 +291,7 @@ const Sidebar = () => {
                 <li>
                   <a href="/change-password">Change Password</a>
                 </li>
-				<li class="menu-title">EAGLE VISION</li>
+				<li class="menu-title">Kapitan Land</li>
                 <li>
                   <a href="/loan-duration">Loan Durations</a>
                 </li>

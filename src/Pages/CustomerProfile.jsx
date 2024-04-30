@@ -187,7 +187,7 @@ const CustomerProfile = () => {
     ]);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Loan Data");
-    XLSX.writeFile(wb, "Eagle Vision Loan Repayments.xlsx");
+    XLSX.writeFile(wb, "Kapitan Land Loan Repayments.xlsx");
   };
 
   function addCommas(number) {

@@ -49,7 +49,7 @@ function App() {
             <div class="footer">
               <div class="copyright">
                 <p>
-                  Copyright © 2024 Eagle Vision || Developed by{" "}
+                  Copyright © 2024 Kapitan Land || Developed by{" "}
                   <a href="https://techmint.africa/" target="_blank">
                     Techmint
                   </a>

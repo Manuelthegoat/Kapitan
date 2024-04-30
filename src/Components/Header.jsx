@@ -127,7 +127,7 @@ const Header = () => {
                                 alt=""
                               />
                               <div>
-                                <h6>Eagle Vision</h6>
+                                <h6>Kapitan Land</h6>
                                 <span>ADMIN</span>
                               </div>
                             </div>
