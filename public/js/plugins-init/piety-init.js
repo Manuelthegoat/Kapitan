@@ -39,7 +39,7 @@ var dlabPiety = function(){
     var handlePietyPie = function(){
 		if(jQuery('span.pie').length > 0 ){
 			$("span.pie").peity("pie", {
-				fill: ['#452b90', 'rgba(44, 44, 44, .3)'], 
+				fill: ['#343a40', 'rgba(44, 44, 44, .3)'], 
 				width: "100",
 				height: "100"
 			});
@@ -59,7 +59,7 @@ var dlabPiety = function(){
 		if(jQuery('.peity-line').length > 0 ){
 			$(".peity-line").peity("line", {
 				fill: ["rgba(69,43,144,0.5)"], 
-				stroke: '#452b90', 
+				stroke: '#343a40', 
 				width: "100%",
 				height: "100"
 			});
@@ -69,7 +69,7 @@ var dlabPiety = function(){
 	var handlePietyLine2 = function(){
 		if(jQuery('.peity-line-2').length > 0 ){
 			$(".peity-line-2").peity("line", {
-				fill: "#452b90", 
+				fill: "#343a40", 
 				stroke: "#f77f8b", 
 				//width: "100%",
 				width: getGraphBlockSize('.peity-line-2'),
@@ -94,7 +94,7 @@ var dlabPiety = function(){
 	var handlePietyBar = function(){
 		if(jQuery('.bar').length > 0 ){
 			$(".bar").peity("bar", {
-				fill: ["#452b90", "#ffaa2b", "#3693FF"],  
+				fill: ["#343a40", "#ffaa2b", "#3693FF"],  
 				width: "100%",
 				height: "100",
 			});
@@ -104,7 +104,7 @@ var dlabPiety = function(){
 	var handlePietyBar1 = function(){
 		if(jQuery('.bar1').length > 0 ){
 			$(".bar1").peity("bar", {
-				fill: ["#452b90", "#ffaa2b", "#3693FF"],    
+				fill: ["#343a40", "#ffaa2b", "#3693FF"],    
 				//width: "100%",
 				width: getGraphBlockSize('.bar1'),
 				height: "140"
@@ -115,7 +115,7 @@ var dlabPiety = function(){
 	var handlePietyBarColours1 = function(){
 		if(jQuery('.bar-colours-1').length > 0 ){
 			$(".bar-colours-1").peity("bar", {
-				fill: ["#452b90", "#ffaa2b", "#3693FF"],  
+				fill: ["#343a40", "#ffaa2b", "#3693FF"],  
 				width: "100",
 				height: "100"
 			});
@@ -159,7 +159,7 @@ var dlabPiety = function(){
     var handlePietyColours2 = function(){
 		if(jQuery('.pie-colours-2').length > 0 ){
 			$(".pie-colours-2").peity("pie", {
-				fill: ["#452b90", "#ffaa2b", "#3693FF", "#ff5c00", "#EE3C3C"],
+				fill: ["#343a40", "#ffaa2b", "#3693FF", "#ff5c00", "#EE3C3C"],
 				width: "100",
 				height: "100"
 			});

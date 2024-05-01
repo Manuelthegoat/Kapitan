@@ -39,7 +39,7 @@ function getUrlParams(dParam)
 		primary: "color_1",
 		headerBg: "color_1",
 		navheaderBg: "color_2",
-		sidebarBg: "color_2",
+		sidebarBg: "color_4",
 		sidebarStyle: "full",
 		sidebarPosition: "fixed",
 		headerPosition: "fixed",
