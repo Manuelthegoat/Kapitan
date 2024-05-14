@@ -7,7 +7,7 @@ const Users = () => {
 
 
   useEffect(() => {
-    fetch("https://eaglevision.onrender.com/api/v1/users", {
+    fetch("https://kapitanlands.onrender.com/api/v1/users", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

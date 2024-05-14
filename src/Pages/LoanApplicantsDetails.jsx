@@ -14,7 +14,7 @@ const LoanApplicantsDetails = () => {
   const { id } = useParams();
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch(`https://eaglevision.onrender.com/api/v1/loans/${id}`, {
+    fetch(`https://kapitanlands.onrender.com/api/v1/loans/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -31,7 +31,7 @@ const LoanApplicantsDetails = () => {
 
         // fetch customer details using the id from loanApplicantsDetails.customer
         return fetch(
-          `https://eaglevision.onrender.com/api/v1/customers/${data.data?.customer}`, {
+          `https://kapitanlands.onrender.com/api/v1/customers/${data.data?.customer}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -60,7 +60,7 @@ const LoanApplicantsDetails = () => {
     // Fetch repayments using the customer id
     if (customerDetails) {
       fetch(
-        `https://eaglevision.onrender.com/api/v1/loans/customer/${loanApplicantsDetails?.customer}/loans`, {
+        `https://kapitanlands.onrender.com/api/v1/loans/customer/${loanApplicantsDetails?.customer}/loans`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
