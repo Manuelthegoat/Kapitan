@@ -180,7 +180,7 @@ const LoanApplicants = () => {
     ]);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Loan Data");
-    XLSX.writeFile(wb, "Kapitan Land Loan Report.xlsx");
+    XLSX.writeFile(wb, "Eagle Vision Loan Report.xlsx");
   };
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);

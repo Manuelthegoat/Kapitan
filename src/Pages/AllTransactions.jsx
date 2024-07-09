@@ -105,7 +105,7 @@ const AllTransactions = () => {
     ]);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Loan Data");
-    XLSX.writeFile(wb, "Kapitan Land Transactions Report.xlsx");
+    XLSX.writeFile(wb, "Eagle Vision Transactions Report.xlsx");
   };
 
   return (

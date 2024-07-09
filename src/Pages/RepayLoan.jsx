@@ -201,6 +201,13 @@ const RepayLoan = () => {
       .catch((error) => console.log("Error fetching data: ", error))
       .finally(() => setLoading(false)); // Set loading to false here, after success or error
   }, []);
+
+  const formatNumber = (num) => {
+    // Remove non-numeric characters
+    const numericValue = num.replace(/\D/g, '');
+    // Add commas
+    return numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
   return (
     <>
           <CookiesProvider>
