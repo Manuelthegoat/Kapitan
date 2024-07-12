@@ -14,7 +14,7 @@ const NavHeader = () => {
       <div class="nav-header">
         <a href="/" class="brand-logo">
          {/* <img src="./images/logo/logo.png" class="logo-abbr" alt="" /> */}
-         <img src="./images/logo/logofull.png" class="brand-title" alt="" />
+         <img src="./images/logo/newlogo.png" class="brand-title" alt="" />
         </a>
         <div class="nav-control">
           <div class="hamburger" onClick={handleGoBack}>
