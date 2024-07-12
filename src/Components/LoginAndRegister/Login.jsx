@@ -75,7 +75,7 @@ const Login = () => {
                       <div class="auth-form">
                         <div class="text-center mb-3">
                           <a>
-                            <img src="./images/logo/logofull.png" alt="" />
+                            <img src="./images/logo/newlogo.png" alt="" />
                           </a>
                         </div>
                         <h4 class="text-center mb-4">
