@@ -113,7 +113,7 @@ const Header = () => {
                       >
                         <div class="header-info2 d-flex align-items-center">
                           <div class="header-media">
-                            <img src="./images/logo/logo.png" alt="" />
+                            <img src="./images/logo/smallnewlogo.png" alt="" />
                           </div>
                         </div>
                       </a>
