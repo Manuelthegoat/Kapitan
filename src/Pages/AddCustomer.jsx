@@ -46,14 +46,12 @@ const AddCustomer = () => {
       customersPhoneNo: phone,
       maritalStatus: maritalStatus,
       spouseName: spouseName,
-      spousePhoneNo: spousePhone,
       meansOfIdentification: identificationMeans,
       meansOfIdentificationNumber: idNumber,
       bankName: bankName,
       bankAccountNo: bankAccountNo,
       bankAccountName: bankAccountName,
       nextOfKin: nextOfKin,
-      nextOfKinPhone: nextOfKinPhone,
       homeAddress: contactAddress,
       contactAddress: contactAddress,
       accountOfficer: userss?.firstName,
@@ -257,16 +255,7 @@ const AddCustomer = () => {
                       className="form-control"
                     />
                   </div>
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Spouse Phone No</label>
-                    <input
-                      type="text"
-                      value={spousePhone}
-                      onChange={(e) => setSpousePhone(e.target.value)}
-                      placeholder="Spouse Phone No"
-                      className="form-control"
-                    />
-                  </div>
+                 
                 </div>
                 <div class="row">
                   <div class="mb-3 col-md-6">
@@ -344,16 +333,7 @@ const AddCustomer = () => {
                       className="form-control"
                     />
                   </div>
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Next of Kin Phone No</label>
-                    <input
-                      type="text"
-                      value={nextOfKinPhone}
-                      onChange={(e) => setNextOfKinPhone(e.target.value)}
-                      placeholder="Next of Kin Phone Number"
-                      className="form-control"
-                    />
-                  </div>
+                 
                 </div>
                 <div className="row">
                   <div className="mb-3 col-md-12">
