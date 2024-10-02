@@ -32,7 +32,7 @@ const ChangePassword = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`https://kapitanlands.onrender.com/api/v1/users/change-password`, {
+      const response = await fetch(`https://kapitanlands-8xjj.onrender.com/api/v1/users/change-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

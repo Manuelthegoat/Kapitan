@@ -8,7 +8,7 @@ const CustomerDetails = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch(`https://kapitanlands.onrender.com/api/v1/customers/${id}`, {
+    fetch(`https://kapitanlands-8xjj.onrender.com/api/v1/customers/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

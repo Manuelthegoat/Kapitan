@@ -17,7 +17,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        "https://kapitanlands.onrender.com/api/v1/users/login",
+        "https://kapitanlands-8xjj.onrender.com/api/v1/users/login",
         {
           method: "POST",
           headers: {

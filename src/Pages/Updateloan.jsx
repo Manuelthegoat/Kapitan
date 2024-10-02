@@ -53,7 +53,7 @@ const Updateloan = () => {
 
     try {
       const response = await fetch(
-        `https://kapitanlands.onrender.com/api/v1/loans/${id}/update`,
+        `https://kapitanlands-8xjj.onrender.com/api/v1/loans/${id}/update`,
         {
           method: "PATCH",
           headers: {
@@ -86,7 +86,7 @@ const Updateloan = () => {
   };
 
   useEffect(() => {
-    fetch("https://kapitanlands.onrender.com/api/v1/users", {
+    fetch("https://kapitanlands-8xjj.onrender.com/api/v1/users", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -9,7 +9,7 @@ const UsersList = () => {
 
 
   useEffect(() => {
-    fetch("https://kapitanlands.onrender.com/api/v1/users", {
+    fetch("https://kapitanlands-8xjj.onrender.com/api/v1/users", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

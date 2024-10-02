@@ -12,7 +12,7 @@ const UsersDetails = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    fetch(`https://kapitanlands.onrender.com/api/v1/users/${id}`, {
+    fetch(`https://kapitanlands-8xjj.onrender.com/api/v1/users/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -28,7 +28,7 @@ const UsersDetails = () => {
         setUserDetails(data.data);
 
         fetch(
-          `https://kapitanlands.onrender.com/api/v1/transactions/getAllTransactionsByCollector?collectedBy=${data.data.lastName}`,
+          `https://kapitanlands-8xjj.onrender.com/api/v1/transactions/getAllTransactionsByCollector?collectedBy=${data.data.lastName}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

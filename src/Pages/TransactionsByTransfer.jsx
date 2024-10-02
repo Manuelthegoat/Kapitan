@@ -13,7 +13,7 @@ const TransactionsByTransfer = () => {
 
   useEffect(() => {
     fetch(
-      "https://kapitanlands.onrender.com/api/v1/transactions/transactions/transfer", {
+      "https://kapitanlands-8xjj.onrender.com/api/v1/transactions/transactions/transfer", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

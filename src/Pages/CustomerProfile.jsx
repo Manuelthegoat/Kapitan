@@ -32,7 +32,7 @@ const CustomerProfile = () => {
         setLoading(true);
 
         const response = await fetch(
-          "https://kapitanlands.onrender.com/api/v1/loans",
+          "https://kapitanlands-8xjj.onrender.com/api/v1/loans",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ const CustomerProfile = () => {
             const token = localStorage.getItem("token");
 
             const customerResponse = await fetch(
-              `https://kapitanlands.onrender.com/api/v1/customers/${customerId}`,
+              `https://kapitanlands-8xjj.onrender.com/api/v1/customers/${customerId}`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ const CustomerProfile = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch(`https://kapitanlands.onrender.com/api/v1/customers/${id}`, {
+    fetch(`https://kapitanlands-8xjj.onrender.com/api/v1/customers/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -102,7 +102,7 @@ const CustomerProfile = () => {
     const token = localStorage.getItem("token");
 
     fetch(
-      `https://kapitanlands.onrender.com/api/v1/customers/${id}/transactions`,
+      `https://kapitanlands-8xjj.onrender.com/api/v1/customers/${id}/transactions`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -13,7 +13,7 @@ const CustomerAvailableBalance = () => {
     const token = localStorage.getItem("token");
 
     // Fetch customer details
-    fetch(`https://kapitanlands.onrender.com/api/v1/customers/${id}`, {
+    fetch(`https://kapitanlands-8xjj.onrender.com/api/v1/customers/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -32,7 +32,7 @@ const CustomerAvailableBalance = () => {
       );
 
     // Fetch loans data
-    fetch("https://kapitanlands.onrender.com/api/v1/loans", {
+    fetch("https://kapitanlands-8xjj.onrender.com/api/v1/loans", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

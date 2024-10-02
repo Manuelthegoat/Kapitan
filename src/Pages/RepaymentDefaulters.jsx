@@ -13,7 +13,7 @@ const RepaymentDefaulters = () => {
     const token = localStorage.getItem("token");
 
     fetch(
-      "https://kapitanlands.onrender.com/api/v1/loans/defaulters", {
+      "https://kapitanlands-8xjj.onrender.com/api/v1/loans/defaulters", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
