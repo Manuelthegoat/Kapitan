@@ -256,17 +256,7 @@ const RepayLoan = () => {
                         <option value="transfer">Transfer</option>
                       </select>
                     </div>
-                    {/* <div class="mb-3 col-md-6">
-                    <label class="form-label">Uploaded By</label>
-                    <select
-                      value={type}
-                      onChange={(e) => setType(e.target.value)}
-                      class="default-select form-control wide"
-                    >
-                    <option value="">Select One</option>
-                    
-                    </select>
-                  </div>*/}
+                   
                     <div class="mb-3 col-md-6">
                       <label class="form-label">Interest Amount</label>
                       <input
