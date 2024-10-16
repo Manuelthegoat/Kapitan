@@ -239,7 +239,7 @@ const RepayLoan = () => {
                       <input
                         type="number"
                         class="form-control"
-                        placeholder="Repayment Amount"
+                        placeholder={debitCredit === "credit" ? "Repayment Amount": "Deposit Amount"}
                         value={repaymentAmount}
                         onChange={(e) => setRepaymentAmount(e.target.value)}
                       />
