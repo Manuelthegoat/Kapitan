@@ -23,41 +23,20 @@ const RepayLoan = () => {
   const token = localStorage.getItem("token");
   const [userss, setUserss] = useState([]);
 
-
   const { id } = useParams();
   const navigate = useNavigate();
-  // const deleteLoan = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       `https://kapitanlands-8xjj.onrender.com/api/v1/loans/${id}`,
-  //       {
-  //         method: "DELETE",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
-
-  //     if (!response.ok) {
-  //       throw new Error("Network response was not ok");
-  //     }
-
-  //     const data = await response.json();
-  //     console.log("Deleted Loan:", data);
-  //   } catch (error) {
-  //     console.error("There was a problem with the delete operation:", error.message);
-  //     toast.error("An Error Occurred while deleting the loan", error.message);
-  //   }
-  // };
 
   useEffect(() => {
-    const token = localStorage.getItem("token"); // Replace 'your_token_key' with the actual key you use to store the token
+    const token = localStorage.getItem("token");
 
-    fetch(`https://kapitanlands-8xjj.onrender.com/api/v1/users/${cookies.userId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    fetch(
+      `https://kapitanlands-8xjj.onrender.com/api/v1/users/${cookies.userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -131,15 +110,19 @@ const RepayLoan = () => {
       modeOfPayment: type,
       collectedBy: collectedBy,
       paymentDate: paymentDate,
-      name: loanApplicantsDetails?.name ,
+      name: loanApplicantsDetails?.name,
       description: description,
       firstGuarantorsName: loanApplicantsDetails?.firstGuarantorsName,
-      firstGuarantorsPhoneNumber: loanApplicantsDetails?.firstGuarantorsPhoneNumber,
-      firstGuarantorsOccupation: loanApplicantsDetails?.firstGuarantorsOccupation,
+      firstGuarantorsPhoneNumber:
+        loanApplicantsDetails?.firstGuarantorsPhoneNumber,
+      firstGuarantorsOccupation:
+        loanApplicantsDetails?.firstGuarantorsOccupation,
       secondGuarantorsName: loanApplicantsDetails?.firstGuarantorsName,
-      secondGuarantorsOccupation: loanApplicantsDetails?.secondGuarantorsOccupation,
-      secondGuarantorsPhoneNumber: loanApplicantsDetails?.secondGuarantorsPhoneNumber,
-      uploadedBy: userss.firstName+" "+ userss.lastName,
+      secondGuarantorsOccupation:
+        loanApplicantsDetails?.secondGuarantorsOccupation,
+      secondGuarantorsPhoneNumber:
+        loanApplicantsDetails?.secondGuarantorsPhoneNumber,
+      uploadedBy: userss.firstName + " " + userss.lastName,
     };
 
     console.log(formData);
@@ -204,71 +187,76 @@ const RepayLoan = () => {
 
   const formatNumber = (num) => {
     // Remove non-numeric characters
-    const numericValue = num.replace(/\D/g, '');
+    const numericValue = num.replace(/\D/g, "");
     // Add commas
-    return numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
   return (
     <>
-          <CookiesProvider>
+      <CookiesProvider>
+        {loading && <Loader />}
+        <ToastContainer />
+        <div class="col-xl-12 col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Add Deposits/Withdrawal</h4>
+            </div>
+            <div class="card-body">
+              <div class="basic-form">
+                <div>
+                  <div class="row">
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Choose Debit / Credit</label>
+                      <select
+                        value={debitCredit}
+                        onChange={(e) => {
+                          setDebitCredit(e.target.value);
+                          console.log(
+                            "Value after changing debitCredit:",
+                            e.target.value
+                          );
+                        }}
+                        class="default-select form-control wide"
+                      >
+                        <option value="">Select One</option>
+                        <option value="credit">Credit</option>
+                        <option value="debit">Debit</option>
+                      </select>
+                    </div>
 
-      {loading && <Loader />}
-      <ToastContainer />
-      <div class="col-xl-12 col-lg-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Add Deposits/Withdrawal</h4>
-          </div>
-          <div class="card-body">
-            <div class="basic-form">
-              <div>
-                <div class="row">
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Choose Debit / Credit</label>
-                    <select
-                      value={debitCredit}
-                      onChange={(e) => {
-                        setDebitCredit(e.target.value);
-                        console.log(
-                          "Value after changing debitCredit:",
-                          e.target.value
-                        );
-                      }}
-                      class="default-select form-control wide"
-                    >
-                      <option value="">Select One</option>
-                      <option value="credit">Credit</option>
-                      <option value="debit">Debit</option>
-                    </select>
-                  </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Customer</label>
+                      <p>{customerDetails?.name}</p>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      {debitCredit === "credit" && (
+                        <label class="form-label">Deposit Amount</label>
+                      )}
+                      {debitCredit !== "credit" && (
+                        <label class="form-label">Repayment Amount</label>
+                      )}
 
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Customer</label>
-                    <p>{customerDetails?.name}</p>
-                  </div>
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Repayment Amount</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      placeholder="Repayment Amount"
-                      value={repaymentAmount}
-                      onChange={(e) => setRepaymentAmount(e.target.value)}
-                    />
-                  </div>
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Type</label>
-                    <select
-                      value={type}
-                      onChange={(e) => setType(e.target.value)}
-                      class="default-select form-control wide"
-                    >
-                      <option value="">Select One</option>
-                      <option value="cash">Cash</option>
-                      <option value="transfer">Transfer</option>
-                    </select>
-                  </div>
-                  {/* <div class="mb-3 col-md-6">
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Repayment Amount"
+                        value={repaymentAmount}
+                        onChange={(e) => setRepaymentAmount(e.target.value)}
+                      />
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Type</label>
+                      <select
+                        value={type}
+                        onChange={(e) => setType(e.target.value)}
+                        class="default-select form-control wide"
+                      >
+                        <option value="">Select One</option>
+                        <option value="cash">Cash</option>
+                        <option value="transfer">Transfer</option>
+                      </select>
+                    </div>
+                    {/* <div class="mb-3 col-md-6">
                     <label class="form-label">Uploaded By</label>
                     <select
                       value={type}
@@ -279,77 +267,79 @@ const RepayLoan = () => {
                     
                     </select>
                   </div>*/}
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Interest Amount</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      placeholder={loanApplicantsDetails?.interestRate}
-                      value={interestRate}
-                      onChange={(e) => setInterestRate(e.target.value)}
-                    />
-                  </div>
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Collected By</label>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Interest Amount</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder={loanApplicantsDetails?.interestRate}
+                        value={interestRate}
+                        onChange={(e) => setInterestRate(e.target.value)}
+                      />
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Collected By</label>
 
-                    <select
-                      value={collectedBy}
-                      onChange={(e) => setcollectedBy(e.target.value)}
-                      class="default-select form-control wide"
-                    >
-                      <option value="">Select One</option>
-                      {users.map((item, index) => (
-                        <option value={item.firstName + item.lastName}>{item.firstName}&nbsp;
-                        {item.lastName}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Loan Start Date</label>
-                    <p>{loanApplicantsDetails?.loanStartDate}</p>
-                  </div>
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Loan End Date</label>
-                    <p>{loanApplicantsDetails?.loanEndDate}</p>
+                      <select
+                        value={collectedBy}
+                        onChange={(e) => setcollectedBy(e.target.value)}
+                        class="default-select form-control wide"
+                      >
+                        <option value="">Select One</option>
+                        {users.map((item, index) => (
+                          <option value={item.firstName + item.lastName}>
+                            {item.firstName}&nbsp;
+                            {item.lastName}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Loan Start Date</label>
+                      <p>{loanApplicantsDetails?.loanStartDate}</p>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Loan End Date</label>
+                      <p>{loanApplicantsDetails?.loanEndDate}</p>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Payment Date</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        value={paymentDate}
+                        onChange={(e) => setPaymentDate(e.target.value)}
+                      />
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Re-Payment Date</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        value={repaymentDate}
+                        onChange={(e) => setRepaymentDate(e.target.value)}
+                      />
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Description</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                      />
+                    </div>
                   </div>
 
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Payment Date</label>
-                    <input
-                      type="date"
-                      class="form-control"
-                      value={paymentDate}
-                      onChange={(e) => setPaymentDate(e.target.value)}
-                    />
-                  </div>
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Re-Payment Date</label>
-                    <input
-                      type="date"
-                      class="form-control"
-                      value={repaymentDate}
-                      onChange={(e) => setRepaymentDate(e.target.value)}
-                    />
-                  </div>
-                  <div class="mb-3 col-md-6">
-                    <label class="form-label">Description</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      value={description}
-                      onChange={(e) => setDescription(e.target.value)}
-                    />
-                  </div>
+                  <button onClick={handleSubmit} class="btn btn-primary">
+                    Submit
+                  </button>
                 </div>
-
-                <button onClick={handleSubmit} class="btn btn-primary">
-                  Submit
-                </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </CookiesProvider>
     </>
   );
