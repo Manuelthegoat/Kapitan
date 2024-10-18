@@ -161,38 +161,17 @@ const Login = () => {
                     <div className="col-xl-12">
                       <div className="auth-form">
                         <p className="text-sm">
-                          Welcome to Kapitanlands Investment Limited Empowering
-                          Small and Medium-Scale Businesses with Financial
-                          Solutions At Kapitanlands, we understand the unique
-                          challenges that small and medium-scale businesses
-                          face. As a trusted financial company, we offer
-                          services tailored to meet your business needs,
-                          ensuring that you have the financial support to
-                          thrive. Our Services Daily Savings: We help you build
-                          financial security with our flexible daily savings
-                          plans. Save a little each day and watch your funds
-                          grow over time. Easy Withdrawals: Access your savings
-                          anytime with a simple withdrawal process based on your
-                          requests. Loan Services: Need a financial boost? We
-                          provide loans with flexible repayment options, helping
-                          your business grow and succeed. Loan Reconciliation:
-                          We make loan repayments hassle-free with seamless
-                          reconciliation when payments are due. Why Choose
-                          Kapitanlands? We are more than just a financial
-                          service provider. We’re your partner in growth.
-                          Whether you're saving, withdrawing, or in need of a
-                          loan, we are here to support your business every step
-                          of the way. Our dedicated team works closely with you
-                          to offer tailored solutions, ensuring you achieve
-                          financial success. Looking Ahead As we continue to
-                          serve businesses across various sectors, Kapitanlands
-                          is also expanding into real estate, offering
-                          investment opportunities to help you diversify and
-                          grow your portfolio. Let us help you take the next
-                          step in securing your business future. This content
-                          introduces your core services and values while
-                          highlighting your focus on small and medium businesses
-                          and your future plans in real estate.
+                        *Welcome to Kapitanlands Investment Limited*
+
+Empowering Small and Medium-Scale Businesses with Financial Solutions
+At Kapitanlands, we understand the unique challenges that small and medium-scale businesses face. As a trusted financial company, we offer services tailored to meet your business needs, ensuring that you have the financial support to thrive.
+
+
+*Why Choose Kapitanlands?*
+
+We are more than just a financial service provider. We’re your partner in growth. Whether you're saving, withdrawing, or in need of a loan, we are here to support your business every step of the way. Our dedicated team works closely with you to offer tailored solutions, ensuring you achieve financial success.
+Looking Ahead As we continue to serve businesses across various sectors, Kapitanlands is also expanding into real estate, offering investment opportunities to help you diversify and grow your portfolio.
+Let us help you take the next step in securing your business future.
                         </p>
                       </div>
                     </div>
