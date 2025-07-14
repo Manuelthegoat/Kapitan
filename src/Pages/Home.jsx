@@ -30,8 +30,8 @@ const Home = () => {
                             <p>
                               You do not have permission to view this resource.
                             </p>
-                            <a href="index.html" class="btn btn-secondary">
-                              BACK TO HOMEPAGE
+                            <a href="/login" class="btn btn-secondary">
+                              BACK TO LOGIN
                             </a>
                           </div>
                         </div>

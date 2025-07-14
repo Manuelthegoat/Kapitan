@@ -73,7 +73,7 @@ const Routing = () => {
         <Route path="/transactions-by-cash" element={<TransactionsByCash />} />
         <Route path="/transactions-by-transfer" element={<TransactionsByTransfer />} />
         <Route path="/transactions" element={<AllTransactions />} />
-        <Route path="/expenses" element={<Expenses />} />
+        <Route path="/all-expenses" element={<Expenses />} />
         <Route path="/add-expense" element={<AddExpense />} />
         <Route path="/loan-interests" element={<LoanInterests />} />
         <Route path="/edit-loan/:id" element={<EditLoan />} />

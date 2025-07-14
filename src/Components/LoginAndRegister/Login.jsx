@@ -17,7 +17,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        "https://kapitanlands-8xjj.onrender.com/api/v1/users/login",
+        "http://localhost:5001/api/v1/users/login",
         {
           method: "POST",
           headers: {
@@ -37,6 +37,7 @@ const Login = () => {
         console.log("Login successful", data);
         toast.success("Login Successfull");
         localStorage.setItem("token", data.data?.token);
+        // console.log("token", data.data?.token);
         localStorage.setItem("username", data?.data?.user?.fullName);
         localStorage.setItem("userId", data?.data?.user?._id);
         localStorage.setItem("role", data?.data?.user?.roles);
