@@ -4,8 +4,10 @@ import { toast } from "react-toastify";
 
 const Expenses = () => {
   const [expenses, setExpenses] = useState([]);
+  const [filteredExpenses, setFilteredExpenses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filterDate, setFilterDate] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,7 +33,8 @@ const Expenses = () => {
         }
 
         const data = await response.json();
-        setExpenses(data.data); // Assuming your API returns { success: true, data: [...] }
+        setExpenses(data.data);
+        setFilteredExpenses(data.data); // Initialize filtered expenses with all data
         setLoading(false);
       } catch (error) {
         console.error("Error fetching expenses:", error);
@@ -43,6 +46,29 @@ const Expenses = () => {
 
     fetchExpenses();
   }, [navigate]);
+
+  const handleDateFilterChange = (e) => {
+    setFilterDate(e.target.value);
+  };
+
+  const applyDateFilter = () => {
+    if (!filterDate) {
+      toast.warning("Please select a date");
+      return;
+    }
+
+    const filtered = expenses.filter(expense => {
+      const expenseDate = new Date(expense.createdAt).toISOString().split('T')[0];
+      return expenseDate === filterDate;
+    });
+
+    setFilteredExpenses(filtered);
+  };
+
+  const resetDateFilter = () => {
+    setFilterDate("");
+    setFilteredExpenses(expenses);
+  };
 
   const formatDate = (dateString) => {
     const options = { day: 'numeric', month: 'short', year: 'numeric' };
@@ -84,13 +110,40 @@ const Expenses = () => {
 
   return (
     <div className="card">
-      <div className="card-header">
-        <h4 className="card-title">All Expenses</h4>
-        <a href="/add-expense" type="button" className="btn btn-primary mb-2">
+      <div className="card-header d-flex justify-content-between align-items-center">
+        <h4 className="card-title mb-0">All Expenses</h4>
+        <a href="/add-expense" type="button" className="btn btn-primary">
           Add Expense
         </a>
       </div>
       <div className="card-body">
+        {/* Single Date Filter Section */}
+        <div className="row mb-4">
+          <div className="col-md-4">
+            <label className="form-label">Filter by Date</label>
+            <input
+              type="date"
+              className="form-control"
+              value={filterDate}
+              onChange={handleDateFilterChange}
+            />
+          </div>
+          <div className="col-md-8 d-flex align-items-end">
+            <button 
+              className="btn btn-primary me-2"
+              onClick={applyDateFilter}
+            >
+              Filter
+            </button>
+            <button 
+              className="btn btn-secondary"
+              onClick={resetDateFilter}
+            >
+              Show All
+            </button>
+          </div>
+        </div>
+
         <div className="table-responsive">
           <table className="table table-responsive-md">
             <thead>
@@ -98,13 +151,12 @@ const Expenses = () => {
                 <th><strong>Created At</strong></th>
                 <th><strong>Expense Head</strong></th>
                 <th><strong>Type</strong></th>
-               
                 <th><strong>Amount</strong></th>
               </tr>
             </thead>
             <tbody>
-              {expenses.length > 0 ? (
-                expenses.map((expense) => (
+              {filteredExpenses.length > 0 ? (
+                filteredExpenses.map((expense) => (
                   <tr key={expense._id}>
                     <td>{formatDate(expense.createdAt)}</td>
                     <td>{expense.expenseHead}</td>
@@ -117,15 +169,13 @@ const Expenses = () => {
                         {expense.transactionType}
                       </span>
                     </td>
-                    {/* <td>{expense.quantity}</td>
-                    <td>{formatCurrency(expense.rate)}</td> */}
                     <td>{formatCurrency(expense.amount)}</td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="6" className="text-center">
-                    No expenses found
+                  <td colSpan="4" className="text-center">
+                    {expenses.length === 0 ? "No expenses found" : "No expenses for selected date"}
                   </td>
                 </tr>
               )}
