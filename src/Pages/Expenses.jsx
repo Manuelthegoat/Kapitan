@@ -8,6 +8,7 @@ const Expenses = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filterDate, setFilterDate] = useState("");
+    const [totalAmount, setTotalAmount] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -62,12 +63,17 @@ const Expenses = () => {
       return expenseDate === filterDate;
     });
 
+    // Calculate total amount for the filtered day
+    const total = filtered.reduce((sum, expense) => sum + expense.amount, 0);
+    setTotalAmount(total);
+    
     setFilteredExpenses(filtered);
   };
 
   const resetDateFilter = () => {
     setFilterDate("");
     setFilteredExpenses(expenses);
+    setTotalAmount(0); // Reset total amount when clearing filter
   };
 
   const formatDate = (dateString) => {
@@ -143,6 +149,11 @@ const Expenses = () => {
             </button>
           </div>
         </div>
+         {filterDate && (
+          <div className="alert alert-info mb-4">
+            <strong>Total spent on {filterDate}:</strong> {formatCurrency(totalAmount)}
+          </div>
+        )}
 
         <div className="table-responsive">
           <table className="table table-responsive-md">
