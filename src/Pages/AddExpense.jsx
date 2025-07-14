@@ -121,7 +121,7 @@ const AddExpense = () => {
                     required
                   />
                 </div>
-                <div className="mb-3 col-md-6">
+                {/* <div className="mb-3 col-md-6">
                   <label className="form-label">Quantity</label>
                   <input
                     type="number"
@@ -147,7 +147,7 @@ const AddExpense = () => {
                     step="0.01"
                     required
                   />
-                </div>
+                </div> */}
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Description</label>
                   <input
